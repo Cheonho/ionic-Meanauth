@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding ion-text-center">
+  <h1>천호범 App</h1>
+  <p>Ionic 프레임워크를 이용하는 모바일 앱 개발</p>
+  <img src="assets/logo.PNG" alt="" />
+
+  <ion-grid>
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-button
+          *ngIf="!checkLoggedIn()"
+          [routerLink]="['/register']"
+          size="large"
+          expand="block"
+          color="primary"
+          >Register</ion-button
+        >
+
+        <br />
+
+        <ion-button
+          *ngIf="!checkLoggedIn()"
+          [routerLink]="['/login']"
+          size="large"
+          expand="block"
+          color="success"
+          >Login</ion-button
+        >
+
+        <br />
+
+        <ion-button
+          *ngIf="checkLoggedIn()"
+          (click)="onLogout()"
+          size="large"
+          expand="block"
+          color="danger"
+          >Logout</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
